@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 function ListarVeiculos() {
     const [veiculos, setVeiculos] = useState([]);
@@ -8,14 +9,26 @@ function ListarVeiculos() {
         setVeiculos(storedVeiculos);
     }, []);
 
+    const handleRemoverVeiculo = (index) => {
+        const updatedVeiculo = veiculos.filter((_, i) => i !== index);
+        localStorage.setItem('veiculos', JSON.stringify(updatedVeiculo));
+        setVeiculos(updatedVeiculo);
+    }
+
     return (
         <div>
             <h2>Lista de Veículos</h2>
             <ul>
                 {veiculos.map((veiculo, index) => (
-                <li key={index}>
-                    Marca: {veiculo.marca}, Modelo: {veiculo.modelo}
-                </li>
+                    <li key={index}>
+                        Marca: {veiculo.marca}, Modelo: {veiculo.modelo}
+                        <Link to={`/edit/${index}`}>
+                            <button>
+                                Editar
+                            </button>
+                        </Link>
+                        <button onClick={() => handleRemoverVeiculo(index)}>Remover</button>
+                    </li>
                 ))}
             </ul>
         </div>
