@@ -2,24 +2,24 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 function ListarVeiculos() {
-    const [veiculos, setVeiculos] = useState([]);
+    const [vehicles, setVehicles] = useState([]);
 
     useEffect(() => {
-        const storedVeiculos = JSON.parse(localStorage.getItem('veiculos')) || [];
-        setVeiculos(storedVeiculos);
+        const storedVehicles = JSON.parse(localStorage.getItem('vehicles')) || [];
+        setVehicles(storedVehicles);
     }, []);
 
-    const handleRemoverVeiculo = (index) => {
-        const updatedVeiculo = veiculos.filter((_, i) => i !== index);
-        localStorage.setItem('veiculos', JSON.stringify(updatedVeiculo));
-        setVeiculos(updatedVeiculo);
+    const handleRemoveVehicle = (index) => {
+        const updatedVehicles = vehicles.filter((_, i) => i !== index);
+        localStorage.setItem('vehicles', JSON.stringify(updatedVehicles));
+        setVehicles(updatedVehicles);
     }
 
     return (
         <div>
             <h2>Lista de Veículos</h2>
             <ul>
-                {veiculos.map((veiculo, index) => (
+                {vehicles.map((veiculo, index) => (
                     <li key={index}>
                         Marca: {veiculo.marca}, Modelo: {veiculo.modelo}
                         <Link to={`/edit/${index}`}>
@@ -27,7 +27,7 @@ function ListarVeiculos() {
                                 Editar
                             </button>
                         </Link>
-                        <button onClick={() => handleRemoverVeiculo(index)}>Remover</button>
+                        <button onClick={() => handleRemoveVehicle(index)}>Remover</button>
                     </li>
                 ))}
             </ul>

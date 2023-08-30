@@ -3,16 +3,16 @@ import { useNavigate } from "react-router-dom";
 
 function FormularioVeiculo(){
     const navigate = useNavigate();
-    const [veiculo, setVeiculo] = useState({ marca: '', modelo: '' });
+    const [vehicle, setVehicle] = useState({ marca: '', modelo: '' });
 
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        const storedVeiculos = JSON.parse(localStorage.getItem('veiculos')) || [];
-        storedVeiculos.push(veiculo);
-        localStorage.setItem('veiculos', JSON.stringify(storedVeiculos));
+        const storedVehicles = JSON.parse(localStorage.getItem('vehicles')) || [];
+        storedVehicles.push(vehicle);
+        localStorage.setItem('vehicles', JSON.stringify(storedVehicles));
 
-        console.log("Veículo adicionado com sucesso!", veiculo);
+        console.log("Veículo adicionado com sucesso!", vehicle);
         navigate('/');
     }
 
@@ -22,12 +22,23 @@ function FormularioVeiculo(){
             <form onSubmit={handleSubmit} >
                 <label>
                     Marca:
-                    <input type="text" name="marca" value={veiculo.marca} onChange={(e) => setVeiculo({ ...veiculo, marca: e.target.value })} />
+                    <input 
+                        type="text" 
+                        name="marca"
+                        value={vehicle.marca} 
+                        onChange={(e) => 
+                        setVehicle({ ...vehicle, marca: e.target.value })} 
+                    />
                 </label>
                 <br />
                 <label>
                     Modelo:
-                    <input type="text" name="modelo" value={veiculo.modelo} onChange={(e) => setVeiculo({ ...veiculo, modelo: e.target.value })} />
+                    <input 
+                        type="text" 
+                        name="modelo" 
+                        value={vehicle.modelo} 
+                        onChange={(e) => setVehicle({ ...vehicle, modelo: e.target.value })} 
+                    />
                 </label>
                 <br />
                 <button type="submit"> Adicionar Veículo </button>
