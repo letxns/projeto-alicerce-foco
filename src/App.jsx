@@ -3,6 +3,7 @@ import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
 import ListarVeiculo from './Pages/ListarVeiculo';
 import FormularioVeiculo from './Pages/FormularioVeiculo';
+import EditarVeiculo from './Pages/EditarVeiculo';
 import './App.css';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<ListarVeiculo />} />
           <Route path="/add" element={<FormularioVeiculo />} />
+          <Route path="/edit/:index" element={<EditarVeiculo />} />
         </Routes>
       <Footer />
     </Router>
