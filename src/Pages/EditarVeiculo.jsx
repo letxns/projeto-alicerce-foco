@@ -5,7 +5,7 @@ function EditarVeiculo() {
     const { index } = useParams();
     const navigate = useNavigate();
     const [vehicle, setVehicle] = useState({ marca: '', modelo: ''});
-
+    
     useEffect(() => {
         const storedVehicles = JSON.parse(localStorage.getItem('vehicles')) || [];
         if(storedVehicles[index]){

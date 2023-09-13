@@ -13,7 +13,7 @@ function ListarVeiculos() {
         const updatedVehicles = vehicles.filter((_, i) => i !== index);
         localStorage.setItem('vehicles', JSON.stringify(updatedVehicles));
         setVehicles(updatedVehicles);
-    }
+    };
 
     return (
         <div>

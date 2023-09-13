@@ -26,8 +26,7 @@ function FormularioVeiculo(){
                         type="text" 
                         name="marca"
                         value={vehicle.marca} 
-                        onChange={(e) => 
-                        setVehicle({ ...vehicle, marca: e.target.value })} 
+                        onChange={(e) => setVehicle({ ...vehicle, marca: e.target.value })} 
                     />
                 </label>
                 <br />

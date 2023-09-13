@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 
-function Navbar(){
+export const Navbar = () => {
 
     return(
         <nav>
@@ -12,9 +12,10 @@ function Navbar(){
                 <li>
                     <Link to="/add">Adicionar Veículo</Link>
                 </li>
+                <li>
+                    <Link to="/criar-conta">Criar Conta</Link>
+                </li>
             </ul>
         </nav>
     )
 }
-
-export default Navbar;
