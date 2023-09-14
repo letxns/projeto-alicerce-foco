@@ -21,7 +21,7 @@ function ListarVeiculos() {
             <ul>
                 {vehicles.map((veiculo, index) => (
                     <li key={index}>
-                        Marca: {veiculo.marca}, Modelo: {veiculo.modelo}
+                        Marca: {veiculo.marca}, Modelo: {veiculo.modelo}, Ano: {veiculo.ano}
                         <Link to={`/edit/${index}`}>
                             <button>
                                 Editar

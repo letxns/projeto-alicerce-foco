@@ -4,7 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 function EditarVeiculo() {
     const { index } = useParams();
     const navigate = useNavigate();
-    const [vehicle, setVehicle] = useState({ marca: '', modelo: ''});
+    const [vehicle, setVehicle] = useState({ marca: '', modelo: '', ano: '' });
     
     useEffect(() => {
         const storedVehicles = JSON.parse(localStorage.getItem('vehicles')) || [];
@@ -45,6 +45,14 @@ function EditarVeiculo() {
                     type="text" 
                     value={vehicle.modelo} 
                     onChange={(e) => setVehicle({ ...vehicle, modelo: e.target.value})} 
+                />
+                <label>
+                    Ano:
+                </label>
+                <input 
+                    type="number" 
+                    value={vehicle.ano} 
+                    onChange={(e) => setVehicle({ ...vehicle, ano: e.target.value})} 
                 />
                 <br/>
                 <button type="submit">Salvar alterações</button>

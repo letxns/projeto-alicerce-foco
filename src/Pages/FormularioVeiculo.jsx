@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 function FormularioVeiculo(){
     const navigate = useNavigate();
-    const [vehicle, setVehicle] = useState({ marca: '', modelo: '' });
+    const [vehicle, setVehicle] = useState({ marca: '', modelo: '', ano: '' });
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -39,6 +39,16 @@ function FormularioVeiculo(){
                         value={vehicle.modelo} 
                         required
                         onChange={(e) => setVehicle({ ...vehicle, modelo: e.target.value })} 
+                    />
+                </label>
+                <label>
+                    Ano:
+                    <input 
+                        type="number" 
+                        name="ano" 
+                        value={vehicle.ano} 
+                        required
+                        onChange={(e) => setVehicle({ ...vehicle, ano: e.target.value })} 
                     />
                 </label>
                 <br />

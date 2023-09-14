@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 function CriarConta() {
     const navigate = useNavigate();
-    const [usuario, setUsuario] = useState({ nomeUsuario: '', senha: '' });
+    const [usuario, setUsuario] = useState({ email: '', nomeUsuario: '', senha: '' });
 
     const handleCreateAccount = (e) => {
         e.preventDefault()
@@ -15,6 +15,15 @@ function CriarConta() {
         <div>
             <h2>Criar Conta</h2>
             <form onSubmit={handleCreateAccount}>
+                <label>
+                    E-mail:
+                    <input
+                        type="email"
+                        value={usuario.email}
+                        onChange={(e) => setUsuario({ ...usuario, email: e.target.value })}
+                        required
+                    />
+                </label>
                 <label>
                     Nome de Usuário:
                     <input

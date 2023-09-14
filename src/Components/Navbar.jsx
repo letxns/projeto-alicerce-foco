@@ -15,6 +15,9 @@ export const Navbar = () => {
                 <li>
                     <Link to="/criar-conta">Criar Conta</Link>
                 </li>
+                <Link to="/login">
+                    <button style={{margin: '5%'}}>Login</button>
+                </Link>
             </ul>
         </nav>
     )
