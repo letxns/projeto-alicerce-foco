@@ -20,15 +20,17 @@ function ListarVeiculos() {
             <h2>Lista de Veículos</h2>
             <ul>
                 {vehicles.map((veiculo, index) => (
-                    <li key={index}>
+                    <div key={index} className='botoes' >
                         Marca: {veiculo.marca}, Modelo: {veiculo.modelo}, Ano: {veiculo.ano}
                         <Link to={`/edit/${index}`}>
                             <button>
                                 Editar
                             </button>
                         </Link>
-                        <button onClick={() => handleRemoveVehicle(index)}>Remover</button>
-                    </li>
+                        <button onClick={() => handleRemoveVehicle(index)}>
+                            Remover
+                        </button>
+                    </div>
                 ))}
             </ul>
         </div>
